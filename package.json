@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "deploy": "gh-pages -d dist -b oschina-pages -o oschina -r git@gitee.com:hudongchen/three-demo.git",
+    "deployGh": "gh-pages -d dist",
+    "deployGitee": "gh-pages -d dist -b oschina-pages -o oschina -r git@gitee.com:hudongchen/three-demo.git",
     "build": "vite build"
   },
   "dependencies": {
