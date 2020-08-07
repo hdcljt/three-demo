@@ -1,6 +1,6 @@
 # three.js基础
 
-[在线演示(基于three:v0.119.1和vue:v3.0.0-rc.5)](https://hdcljt.github.io)
+[在线演示(基于three:v0.119.1和vue:v3.0.0-rc.5)](https://hdcljt.github.io/three-demo)
 
 ## 场景 / 相机 / 渲染器 / 物件
 
