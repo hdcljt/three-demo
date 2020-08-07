@@ -1,0 +1,16 @@
+.split {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    display: flex;
+}
+.split > div {
+    flex: 1;
+}
+.split > div:focus {
+    outline: auto;
+    outline-width: 3px;
+    outline-color: red;
+}

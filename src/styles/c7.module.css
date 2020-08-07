@@ -1,0 +1,17 @@
+.btn {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #444;
+    color: white;
+}
+.btn:focus {
+    outline: none;
+}
