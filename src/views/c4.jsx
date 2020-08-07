@@ -139,7 +139,7 @@ export default defineComponent({
                 if (v === 'TextureLoader') {
                     const loader = new THREE.TextureLoader()
                     const material = new THREE.MeshBasicMaterial({
-                        map: loader.load('/textures/cube/neg-x.jpg')
+                        map: loader.load('textures/cube/neg-x.jpg')
                     })
                     mesh = new THREE.Mesh(geometry, material)
                     setupSence(renderer, item.value[i], mesh)
@@ -148,22 +148,22 @@ export default defineComponent({
                     const loader = new THREE.TextureLoader(loadMgr)
                     const materials = [
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/pos-x.jpg')
+                            map: loader.load('textures/cube/pos-x.jpg')
                         }),
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/neg-x.jpg')
+                            map: loader.load('textures/cube/neg-x.jpg')
                         }),
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/pos-y.jpg')
+                            map: loader.load('textures/cube/pos-y.jpg')
                         }),
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/neg-y.jpg')
+                            map: loader.load('textures/cube/neg-y.jpg')
                         }),
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/pos-z.jpg')
+                            map: loader.load('textures/cube/pos-z.jpg')
                         }),
                         new THREE.MeshBasicMaterial({
-                            map: loader.load('/textures/cube/neg-z.jpg')
+                            map: loader.load('textures/cube/neg-z.jpg')
                         })
                     ]
                     mesh = new THREE.Mesh(geometry, materials)
@@ -171,7 +171,7 @@ export default defineComponent({
                 } else if (v === 'CubeTextureLoader') {
                     const loader = new THREE.CubeTextureLoader()
                     const texture = loader
-                        .setPath('/textures/cube/')
+                        .setPath('textures/cube/')
                         .load([
                             'pos-x.jpg',
                             'neg-x.jpg',
@@ -253,7 +253,7 @@ export default defineComponent({
                 } else {
                     const loader = new THREE.CubeTextureLoader()
                     const texture = loader
-                        .setPath('/textures/cube/')
+                        .setPath('textures/cube/')
                         .load([
                             'pos-x.jpg',
                             'neg-x.jpg',
@@ -311,7 +311,7 @@ export default defineComponent({
             <div ref={list} class={style.content}>
                 <video
                     ref={video}
-                    src='/textures/pano.mp4'
+                    src='textures/pano.mp4'
                     muted
                     loop
                     playsinline

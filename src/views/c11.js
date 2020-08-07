@@ -19,7 +19,7 @@ export default defineComponent({
 
         const loader = new THREE.CubeTextureLoader()
         const texture = loader
-            .setPath('/textures/cube/')
+            .setPath('textures/cube/')
             .load([
                 'pos-x.jpg',
                 'neg-x.jpg',

@@ -155,7 +155,7 @@ export default defineComponent({
                 } else if (v === 'TextBufferGeometry') {
                     const loader = new THREE.FontLoader()
                     loader.load(
-                        '/fonts/helvetiker_regular.typeface.json',
+                        'fonts/helvetiker_regular.typeface.json',
                         font => {
                             const geometry = new THREE.TextBufferGeometry(
                                 'three.js',

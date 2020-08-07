@@ -1,6 +1,6 @@
-# three.js基础
+# three.js 基础
 
-[在线演示(基于three:v0.119.1和vue:v3.0.0-rc.5)](https://hdcljt.github.io/three-demo)
+[在线演示(基于 three:v0.119.1 和 vue:v3.0.0-rc.5)](https://hdcljt.github.io/three-demo)
 
 ## 场景 / 相机 / 渲染器 / 物件
 
@@ -61,10 +61,10 @@ export default defineComponent({
 -   构造器
 
 ```js
-const fov = 45 // 摄像机视锥体垂直视野角度，从视图的底部到顶部，以角度来表示。默认值是50
+const fov = 45   // 摄像机视锥体垂直视野角度，从视图的底部到顶部，以角度来表示。默认值是50
 const aspect = 2 // 摄像机视锥体宽高比，通常是使用画布的宽/画布的高。默认值是1（正方形画布）
 const near = 0.1 // 摄像机视锥体近截面（距离），默认值是0.1（个单位）
-const far = 5 // 摄像机视锥体远截面（距离），默认值是2000（个单位）
+const far = 5    // 摄像机视锥体远截面（距离），默认值是2000（个单位）
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
 
@@ -88,11 +88,11 @@ camera.updateProjectionMatrix()
  *  +---+---+---+
  **/
 // E
-const width = 1920 // 副摄像机的宽度（每个视图的宽）
-const height = 1080 // 副摄像机的高度（每个视图的高）
-const x = 1 * width // 副摄像机的水平偏移（视图的起点）
-const y = 1 * height // 副摄像机的垂直偏移（视图的起点）
-const fullWidth = w * 3 // 多视图的全宽设置（画布宽）
+const width = 1920       // 副摄像机的宽度（每个视图的宽）
+const height = 1080      // 副摄像机的高度（每个视图的高）
+const x = 1 * width      // 副摄像机的水平偏移（视图的起点）
+const y = 1 * height     // 副摄像机的垂直偏移（视图的起点）
+const fullWidth = w * 3  // 多视图的全宽设置（画布宽）
 const fullHeight = h * 2 // 多视图的全高设置（画布高）
 // 设置视图偏移量
 camera.setViewOffset(fullWidth, fullHeight, x, y, width, height)
@@ -113,8 +113,8 @@ const scene = new THREE.Scene()
 // 设置背景（可以是 Color 或 Texture），默认值为null
 scene.background = new THREE.Color('white')
 const color = 'lightblue' // 雾的颜色（16进制整型、css风格字符串）
-const near = 1 // 开始应用雾的最小距离，距离活动相机小于“near”个单位的物体不会受到雾的影响。默认值为1
-const far = 2 // 计算并应用雾化停止的最大距离。距离活动相机超过“far”个单位的物体不会受到雾的影响。默认值为1000
+const near = 1  // 开始应用雾的最小距离，距离活动相机小于“near”个单位的物体不会受到雾的影响。默认值为1
+const far = 2   // 计算并应用雾化停止的最大距离。距离活动相机超过“far”个单位的物体不会受到雾的影响。默认值为1000
 // 影响场景中的每个物体的雾效果，默认值为null
 scene.fog = new THREE.Fog(color, near, far)
 ```
@@ -131,12 +131,12 @@ scene.add(camera)
 
 ```js
 // 形状-立方体
-const width = 1 // X轴上面的宽度，默认值为1
+const width = 1  // X轴上面的宽度，默认值为1
 const height = 1 // Y轴上面的高度，默认值为1
-const depth = 1 // Z轴上面的深度，默认值为1
-const widthSegments = 1 // （可选）宽度的分段数，默认值是1
+const depth = 1  // Z轴上面的深度，默认值为1
+const widthSegments = 1  // （可选）宽度的分段数，默认值是1
 const heightSegments = 1 // （可选）宽度的分段数，默认值是1
-const depthSegments = 1 // （可选）宽度的分段数，默认值是1
+const depthSegments = 1  // （可选）宽度的分段数，默认值是1
 const geometry = new THREE.BoxBufferGeometry(
     width,
     height,
@@ -158,7 +158,7 @@ const mesh = new THREE.Mesh(geometry, material)
 ```js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 const gltfLoader = new GLTFLoader()
-gltfLoader.load('/models/mountain_landscape/scene.gltf', gltf => {
+gltfLoader.load('models/mountain_landscape/scene.gltf', gltf => {
     scene.add(gltf.scene)
 })
 ```
@@ -168,7 +168,7 @@ gltfLoader.load('/models/mountain_landscape/scene.gltf', gltf => {
 ```js
 const loader = new THREE.TextureLoader()
 const material = new THREE.MeshBasicMaterial({
-    map: loader.load('/textures/cube/neg-x.jpg')
+    map: loader.load('textures/cube/neg-x.jpg')
 })
 const geometry = new THREE.BoxBufferGeometry()
 const mesh = new THREE.Mesh(geometry, material)
@@ -176,16 +176,14 @@ const mesh = new THREE.Mesh(geometry, material)
 
 ```js
 const loader = new THREE.CubeTextureLoader()
-const texture = loader
-    .setPath('/textures/cube/')
-    .load([
-        'pos-x.jpg',
-        'neg-x.jpg',
-        'pos-y.jpg',
-        'neg-y.jpg',
-        'pos-z.jpg',
-        'neg-z.jpg'
-    ])
+const texture = loader.setPath('textures/cube/').load([
+    'pos-x.jpg', // +x
+    'neg-x.jpg', // -x
+    'pos-y.jpg', // +y
+    'neg-y.jpg', // -y
+    'pos-z.jpg', // +z
+    'neg-z.jpg'  // -z
+])
 const scene = new THREE.Scene()
 scene.background = texture
 const material = new THREE.MeshBasicMaterial({
@@ -215,7 +213,7 @@ camera.position.set(0, 10, 20)
 
 ```js
 const color = 0xffffff // 用16进制表示光的颜色。 默认值为 0xffffff (白色)
-const intensity = 1 // 光照的强度。默认值为1
+const intensity = 1    // 光照的强度。默认值为1
 const light = new THREE.DirectionalLight(color, intensity)
 ```
 
@@ -223,8 +221,8 @@ const light = new THREE.DirectionalLight(color, intensity)
 
 ```js
 renderer.shadowMap.enabled = true // 开启阴影贴图
-light.castShadow = true // 光源投射阴影
-mesh.castShadow = true // 物体投射阴影
+light.castShadow = true   // 光源投射阴影
+mesh.castShadow = true    // 物体投射阴影
 mesh.receiveShadow = true // 物体接收阴影
 ```
 
@@ -235,14 +233,12 @@ mesh.receiveShadow = true // 物体接收阴影
 ```js
 const canvas = document.querySelector('canvas')
 const renderer = new THREE.WebGLRenderer({
-    canvas, // 一个供渲染器绘制其输出的canvas，和domElement属性对应。如果没有传会创建一个新canvas
-    alpha: false, // canvas是否包含alpha (透明度)。默认为 false
+    canvas,          // 一个供渲染器绘制其输出的canvas，和domElement属性对应。如果没有传会创建一个新canvas
+    alpha: false,    // canvas是否包含alpha (透明度)。默认为 false
     antialias: false // 是否执行抗锯齿。默认为 false
 })
 renderer.domElement // 一个canvas，渲染器在其上绘制输出（对应于构造器传入的canvas）
-renderer.shadowMap.enabled = false // 如果设置开启，允许在场景中使用阴影贴图。默认是 false
-renderer.shadowMap.autoUpdate = true // 启用场景中的阴影自动更新。默认是 true（如果不需要动态光照/阴影，可以设置为false）
-renderer.shadowMap.needsUpdate = false // 当被设为true, 场景中的阴影贴图会在下次render调用时刷新。默认是 false
+renderer.shadowMap.enabled = false   // 如果设置开启，允许在场景中使用阴影贴图。默认是 false
 renderer.xr.enabled = false // 该标志通知渲染器准备进行XR渲染。默认值为 false
 renderer.setClearColor(0xffffff, 1.0) // 设置颜色及其透明度
 ```
@@ -283,10 +279,10 @@ if (needResize) {
 -   渲染一个目标缓冲
 
 ```js
-const rtWidth = 512 // 渲染目标宽度
+const rtWidth = 512  // 渲染目标宽度
 const rtHeight = 512 // 渲染目标高度
 const renderTarget = new THREE.WebGLRenderTarget(rtWidth, rtHeight, {
-    depthBuffer: false, // 渲染到深度缓冲区。默认是 true
+    depthBuffer: false,  // 渲染到深度缓冲区。默认是 true
     stencilBuffer: false // 渲染到模板缓冲区。默认是 true
 })
 // 设置需要被激活的渲染目标为renderTarget
@@ -335,17 +331,17 @@ import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass'
 // enabled 是否启用该过程
 // renderToScreen 是否渲染到屏幕（画布）
 const bloomPass = new BloomPass(
-    1, // strength
+    1,  // strength
     25, // kernel size
-    4, // sigma
+    4,  // sigma
     256 // blur render target resolution
 )
 // bloomPass.enabled = false // 是否使用此处理过程
 const filmPass = new FilmPass(
-    0.35, // noise intensity
+    0.35,  // noise intensity
     0.025, // scanline intensity
-    648, // scanline count
-    false // grayscale
+    648,   // scanline count
+    false  // grayscale
 )
 // filmPass.renderToScreen = true // 后处理结束
 ```

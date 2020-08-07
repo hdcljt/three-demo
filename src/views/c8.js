@@ -101,7 +101,7 @@ export default defineComponent({
         return () => [
             h('video', {
                 ref: video,
-                src: '/textures/pano.mp4',
+                src: 'textures/pano.mp4',
                 loop: true,
                 muted: true,
                 playsinline: true,

@@ -40,14 +40,14 @@ export default defineComponent({
         addLight(scene, 2, -2, 3)
 
         const gltfLoader = new GLTFLoader()
-        gltfLoader.load('/models/mountain_landscape/scene.gltf', gltf => {
+        gltfLoader.load('models/mountain_landscape/scene.gltf', gltf => {
             const root = gltf.scene
             scene.add(root)
 
             const box = new THREE.Box3().setFromObject(root)
             const boxSize = box.getSize(new THREE.Vector3()).length()
             const boxCenter = box.getCenter(new THREE.Vector3())
-            console.log(boxSize)
+            // console.log(boxSize)
 
             frameArea(boxSize, boxSize, boxCenter, camera)
 

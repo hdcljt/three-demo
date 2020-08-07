@@ -48,7 +48,7 @@ const setupScene = (elem, renderer, type) => {
     const geometry = new THREE.BoxBufferGeometry()
 
     const loader = new THREE.TextureLoader()
-    const texture = loader.load('/textures/frame.png')
+    const texture = loader.load('textures/frame.png')
     const idToObject = {}
     const pickScene = new THREE.Scene()
     pickScene.background = new THREE.Color(0) // 黑色
